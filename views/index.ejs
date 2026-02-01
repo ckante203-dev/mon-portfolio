@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Mon Portfolio | Développeur</title>
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <ul><li><strong>Portfolio Pro</strong></li></ul>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#" role="button">Me contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <hgroup>
+            <h1>Bienvenue sur mon espace</h1>
+            <h2>Programmeur Informatique & Expert Solutions</h2>
+        </hgroup>
+
+        <section id="services">
+            <h3>Mes domaines d'intervention</h3>
+            <div class="grid">
+                <% if (services && services.length > 0) { %>
+                    <% services.forEach(service => { %>
+                        <article>
+                            <header><strong><%= service.titre %></strong></header>
+                            <%= service.description %>
+                        </article>
+                    <% }) %>
+                <% } else { %>
+                    <p>Aucun service répertorié pour le moment.</p>
+                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <small>© 2026 - Créé avec Node.js & Supabase</small>
+    </footer>
+</body>
+</html>
