@@ -1,11 +1,13 @@
-require('dotenv').config();
+equire('dotenv').config();
 const express = require('express');
 const { createClient } = require('@supabase/supabase-js');
+const path = require('path'); // AJOUTE CETTE LIGNE
 const app = express();
 
-// Connexion à Supabase
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
+// MODIFIE CES DEUX LIGNES
+app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'ejs');
 
 // Route principale
