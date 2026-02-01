@@ -1,12 +1,12 @@
-equire('dotenv').config();
+require('dotenv').config(); // <-- Correction ici : "require" au lieu de "equire"
 const express = require('express');
 const { createClient } = require('@supabase/supabase-js');
-const path = require('path'); // AJOUTE CETTE LIGNE
+const path = require('path'); 
 const app = express();
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-// MODIFIE CES DEUX LIGNES
+// Configuration des vues pour Vercel
 app.set('views', path.join(__dirname, 'views')); 
 app.set('view engine', 'ejs');
 
