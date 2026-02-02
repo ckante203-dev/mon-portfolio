@@ -6,45 +6,92 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Force le fond clair même si le téléphone est en mode sombre */
         :root { color-scheme: light; }
+        /* Animation fluide pour le menu */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-open {
+            transform: translateX(0) !important;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
     <nav class="bg-blue-600 shadow-lg sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold text-white flex items-center gap-2">
                 <i class="fas fa-code"></i> Portfolio.dev
             </a>
 
-            <div class="hidden md:flex space-x-4 items-center">
-                <a href="/" class="px-5 py-2.5 rounded-full transition <%= path === '/' ? 'bg-white text-blue-600' : 'text-white hover:bg-blue-500' %>">Accueil</a>
-                <a href="/services" class="px-5 py-2.5 rounded-full transition <%= path === '/services' ? 'bg-white text-blue-600' : 'text-white hover:bg-blue-500' %>">Services</a>
-                <a href="/projets" class="px-5 py-2.5 rounded-full transition <%= path === '/projets' ? 'bg-white text-blue-600' : 'text-white hover:bg-blue-500' %>">Projets</a>
-                <a href="/contact" class="px-5 py-2.5 rounded-full transition <%= path === '/contact' ? 'bg-white text-blue-600' : 'text-white hover:bg-blue-500' %>">Contact</a>
+            <div class="hidden md:flex space-x-2 items-center">
+                <a href="/" class="px-5 py-2.5 rounded-full transition <%= path === '/' ? 'bg-white text-blue-600 shadow-md' : 'text-white hover:bg-blue-500' %>">Accueil</a>
+                <a href="/services" class="px-5 py-2.5 rounded-full transition <%= path === '/services' ? 'bg-white text-blue-600 shadow-md' : 'text-white hover:bg-blue-500' %>">Services</a>
+                <a href="/projets" class="px-5 py-2.5 rounded-full transition <%= path === '/projets' ? 'bg-white text-blue-600 shadow-md' : 'text-white hover:bg-blue-500' %>">Projets</a>
+                <a href="/contact" class="px-5 py-2.5 rounded-full transition <%= path === '/contact' ? 'bg-white text-blue-600 shadow-md' : 'text-white hover:bg-blue-500' %>">Contact</a>
             </div>
 
-            <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
-                <i class="fas fa-bars"></i>
+            <button id="open-btn" class="md:hidden text-white text-2xl p-2">
+                <i class="fas fa-bars-staggered"></i>
             </button>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-blue-700 border-t border-blue-500">
-            <div class="flex flex-col p-4 space-y-2">
-                <a href="/" class="py-3 px-4 rounded-lg text-white <%= path === '/' ? 'bg-blue-800 font-bold' : '' %>">Accueil</a>
-                <a href="/services" class="py-3 px-4 rounded-lg text-white <%= path === '/services' ? 'bg-blue-800 font-bold' : '' %>">Services</a>
-                <a href="/projets" class="py-3 px-4 rounded-lg text-white <%= path === '/projets' ? 'bg-blue-800 font-bold' : '' %>">Projets</a>
-                <a href="/contact" class="py-3 px-4 rounded-lg text-white <%= path === '/contact' ? 'bg-blue-800 font-bold' : '' %>">Contact</a>
-            </div>
         </div>
     </nav>
 
-    <script>
-        // Script pour ouvrir/fermer le menu mobile
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
+    <div id="menu-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[60] hidden opacity-0 transition-opacity duration-300"></div>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[75%] max-w-sm bg-white z-[70] shadow-2xl translate-x-full border-l border-slate-100 flex flex-col">
+        <div class="p-6 flex justify-between items-center border-b border-slate-50">
+            <span class="font-bold text-blue-600">Menu</span>
+            <button id="close-btn" class="text-slate-400 text-2xl hover:text-red-500 transition">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col p-6 space-y-4">
+            <a href="/" class="flex items-center gap-4 p-4 rounded-2xl text-lg font-medium <%= path === '/' ? 'bg-blue-50 text-blue-600' : 'text-slate-600 hover:bg-slate-50' %>">
+                <i class="fas fa-home w-6"></i> Accueil
+            </a>
+            <a href="/services" class="flex items-center gap-4 p-4 rounded-2xl text-lg font-medium <%= path === '/services' ? 'bg-blue-50 text-blue-600' : 'text-slate-600 hover:bg-slate-50' %>">
+                <i class="fas fa-briefcase w-6"></i> Services
+            </a>
+            <a href="/projets" class="flex items-center gap-4 p-4 rounded-2xl text-lg font-medium <%= path === '/projets' ? 'bg-blue-50 text-blue-600' : 'text-slate-600 hover:bg-slate-50' %>">
+                <i class="fas fa-project-diagram w-6"></i> Projets
+            </a>
+            <a href="/contact" class="flex items-center gap-4 p-4 rounded-2xl text-lg font-medium <%= path === '/contact' ? 'bg-blue-50 text-blue-600' : 'text-slate-600 hover:bg-slate-50' %>">
+                <i class="fas fa-envelope w-6"></i> Contact
+            </a>
+        </div>
+
+        <div class="mt-auto p-8 text-center text-slate-400 text-sm">
+            &copy; 2026 Portfolio.dev
+        </div>
+    </div>
+
+    <script>
+        const openBtn = document.getElementById('open-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('menu-overlay');
+
+        function toggleMenu() {
+            const isOpen = menu.classList.contains('menu-open');
+            if (isOpen) {
+                // Fermer
+                menu.classList.remove('menu-open');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            } else {
+                // Ouvrir
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                }, 10);
+                menu.classList.add('menu-open');
+            }
+        }
+
+        openBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
     </script>
