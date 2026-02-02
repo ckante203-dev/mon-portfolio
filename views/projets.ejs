@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+
+<main class="min-h-screen bg-slate-50 py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+        
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+                Mes Réalisations
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                Découvrez une sélection de mes projets récents, allant des applications web complexes aux solutions API performantes.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% if (projets && projets.length > 0) { %>
+                <% projets.forEach(projet => { %>
+                    <article class="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="<%= projet.image_url || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop' %>" 
+                                 alt="<%= projet.titre %>" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                                <%= projet.categorie %>
+                            </div>
+                        </div>
+
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h3 class="text-xl font-bold text-slate-900 mb-3"><%= projet.titre %></h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
+                                <%= projet.description %>
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <% projet.technos.split(',').forEach(tech => { %>
+                                    <span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wider rounded-lg">
+                                        <%= tech.trim() %>
+                                    </span>
+                                <% }); %>
+                            </div>
+
+                            <div class="flex items-center justify-between mt-auto pt-6 border-t border-slate-50">
+                                <a href="<%= projet.github_url %>" target="_blank" class="text-slate-400 hover:text-slate-900 transition">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="<%= projet.demo_url %>" target="_blank" class="flex items-center gap-2 text-blue-600 font-bold text-sm hover:gap-3 transition-all">
+                                    Voir le projet <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                <% }); %>
+            <% } else { %>
+                <div class="col-span-full text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300">
+                    <p class="text-slate-400">Aucun projet à afficher pour le moment. Revenez bientôt !</p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
