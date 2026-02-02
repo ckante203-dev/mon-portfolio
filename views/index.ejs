@@ -1,48 +1,94 @@
 <%- include('partials/header') %>
 
-<header class="py-24 px-4 bg-white border-b border-slate-100">
-    <div class="max-w-4xl mx-auto text-center">
-        <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-blue-600 uppercase bg-blue-50 rounded-full">
-            Disponible pour de nouveaux projets
-        </span>
-        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight text-slate-900">
-            Développeur de solutions <span class="text-blue-600">digitales</span> sur mesure
-        </h1>
-        <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Je conçois et développe des applications web performantes en utilisant les dernières technologies. 
-            Expertise **Node.js**, **Express** et **Supabase**.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/projets" class="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-200">Voir mes travaux</a>
-            <a href="/services" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition">Mes services</a>
+<header class="relative py-20 px-4 bg-white overflow-hidden">
+    <div class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
+        <div class="md:w-3/5 text-center md:text-left">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-blue-600 uppercase bg-blue-50 rounded-full">
+                Disponible pour de nouveaux projets
+            </span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight text-slate-900">
+                Développeur de <span class="text-blue-600 text-gradient">solutions</span> digitales sur mesure
+            </h1>
+            <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
+                Expert en conception de logiciels de gestion (ERP/SaaS) et applications web performantes. 
+                Je transforme vos problématiques complexes en outils simples et scalables.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                <a href="/contact" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition shadow-xl shadow-blue-200 transform hover:-translate-y-1">Démarrer un projet</a>
+                <a href="/projets" class="px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-2xl font-bold hover:bg-slate-50 transition">Voir mes travaux</a>
+            </div>
+        </div>
+
+        <div class="md:w-2/5 flex justify-center">
+            <div class="relative w-72 h-72 md:w-96 md:h-96">
+                <div class="absolute -inset-4 border-2 border-dashed border-blue-200 rounded-[3rem] rotate-6"></div>
+                <div class="w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl rotate-0 bg-slate-200">
+                    <img src="/images/portrait-expert.jpg" alt="Portrait Expert" class="w-full h-full object-cover">
+                </div>
+            </div>
         </div>
     </div>
 </header>
 
+<section class="py-24 bg-slate-50 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center gap-16">
+        <div class="md:w-1/2">
+            <h2 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-3">À propos de moi</h2>
+            <h3 class="text-4xl font-bold text-slate-900 mb-6">Passionné par l'architecture logicielle et l'efficacité</h3>
+            <p class="text-slate-600 mb-6 leading-relaxed">
+                Avec une solide base académique et une maîtrise des technologies modernes comme **Node.js** et **SQL Server**, 
+                je m'efforce de créer des outils qui ont un réel impact sur la productivité de mes clients.
+            </p>
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <div>
+                    <h4 class="font-bold text-slate-900 text-2xl">100%</h4>
+                    <p class="text-sm text-slate-500">Engagement Qualité</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-2xl">Custom</h4>
+                    <p class="text-sm text-slate-500">Solutions sur mesure</p>
+                </div>
+            </div>
+            <a href="/services" class="text-blue-600 font-bold flex items-center gap-2 hover:underline">
+                Découvrez ma stack technique <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="md:w-1/2">
+            <div class="rounded-3xl overflow-hidden shadow-lg border-8 border-white">
+                <img src="/images/action-dev2.png" alt="Développeur en action" class="w-full h-auto">
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="max-w-6xl mx-auto px-4 py-24">
-    <div class="text-center mb-16">
-        <h3 class="text-3xl font-bold mb-4">Mes Services</h3>
-        <p class="text-slate-500">Des solutions adaptées à vos besoins business.</p>
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div class="max-w-xl">
+            <h3 class="text-4xl font-bold mb-4 text-slate-900">Mes Services</h3>
+            <p class="text-slate-500">Des solutions adaptées pour automatiser et digitaliser votre business.</p>
+        </div>
+        <a href="/services" class="px-6 py-3 bg-slate-100 text-slate-900 rounded-xl font-bold hover:bg-blue-600 hover:text-white transition">Voir tout</a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <% if (services && services.length > 0) { %>
-            <% services.forEach(service => { %>
-                <article class="group bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-blue-200 hover:shadow-xl hover:-translate-y-2 transition duration-300">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+            <% services.slice(0, 3).forEach(service => { %>
+                <article class="group bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
                         <i class="fas <%= service.icone || 'fa-rocket' %>"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-3"><%= service.titre %></h4>
-                    <p class="text-slate-600 leading-relaxed mb-6">
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
                         <%= service.description %>
                     </p>
                     <a href="/services" class="text-blue-600 font-bold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                        Détails du service <i class="fas fa-arrow-right"></i>
+                        Détails <i class="fas fa-arrow-right text-xs"></i>
                     </a>
                 </article>
             <% }); %>
-        <% } else { %>
-            <p class="col-span-full text-center text-slate-400">Aucun service disponible.</p>
         <% } %>
     </div>
 </section>
