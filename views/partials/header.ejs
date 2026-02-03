@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>KANTÉ | Développeur Web & Mobile Fullstack - Applications Modernes</title>
+    <meta name="description" content="Développeur web et mobile expert en Node.js, Express et Supabase. Kanté crée des applications performantes, des sites internet sur mesure et des solutions digitales innovantes.">
+    <meta name="keywords" content="Développeur Web, Développeur Mobile, Fullstack, Node.js, Express, Supabase, Applications Web, Création site internet, Informaticien, Freelance, Kanté">
+    <meta name="author" content="Kanté">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mon-portfolio-nu-dun.vercel.app/">
+    <meta property="og:title" content="KANTÉ | Expert Applications Web & Mobile">
+    <meta property="og:description" content="Besoin d'une application ou d'un site web ? Découvrez mon portfolio et mes services de développement.">
+    <meta property="og:image" content="https://mon-portfolio-nu-dun.vercel.app/images/portrait-expert.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KANTÉ | Développeur Fullstack JavaScript">
+    <meta name="twitter:image" content="https://mon-portfolio-nu-dun.vercel.app/images/portrait-expert.jpg">
+
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root { color-scheme: light; }
-        /* Animation fluide pour le menu */
+        /* Animation fluide pour le menu mobile */
         #mobile-menu {
             transition: transform 0.3s ease-in-out;
         }
@@ -17,10 +37,11 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
+
     <nav class="bg-blue-600 shadow-lg sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold text-white flex items-center gap-2">
-                <i class="fas fa-code"></i> Portfolio.dev
+                <i class="fas fa-code"></i> KANTÉ.dev
             </a>
 
             <div class="hidden md:flex space-x-2 items-center">
@@ -30,7 +51,7 @@
                 <a href="/contact" class="px-5 py-2.5 rounded-full transition <%= path === '/contact' ? 'bg-white text-blue-600 shadow-md' : 'text-white hover:bg-blue-500' %>">Contact</a>
             </div>
 
-            <button id="open-btn" class="md:hidden text-white text-2xl p-2">
+            <button id="open-btn" class="md:hidden text-white text-2xl p-2" aria-label="Ouvrir le menu">
                 <i class="fas fa-bars-staggered"></i>
             </button>
         </div>
@@ -40,8 +61,8 @@
 
     <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[75%] max-w-sm bg-white z-[70] shadow-2xl translate-x-full border-l border-slate-100 flex flex-col">
         <div class="p-6 flex justify-between items-center border-b border-slate-50">
-            <span class="font-bold text-blue-600">Menu</span>
-            <button id="close-btn" class="text-slate-400 text-2xl hover:text-red-500 transition">
+            <span class="font-bold text-blue-600 text-lg">Navigation</span>
+            <button id="close-btn" class="text-slate-400 text-2xl hover:text-red-500 transition" aria-label="Fermer le menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -61,8 +82,8 @@
             </a>
         </div>
 
-        <div class="mt-auto p-8 text-center text-slate-400 text-sm">
-            &copy; 2026 Portfolio.dev
+        <div class="mt-auto p-8 text-center text-slate-400 text-sm italic">
+            &copy; 2026 KANTÉ.dev | Expert Web & Mobile
         </div>
     </div>
 
@@ -75,14 +96,12 @@
         function toggleMenu() {
             const isOpen = menu.classList.contains('menu-open');
             if (isOpen) {
-                // Fermer
                 menu.classList.remove('menu-open');
                 overlay.classList.add('opacity-0');
                 setTimeout(() => {
                     overlay.classList.add('hidden');
                 }, 300);
             } else {
-                // Ouvrir
                 overlay.classList.remove('hidden');
                 setTimeout(() => {
                     overlay.classList.remove('opacity-0');
