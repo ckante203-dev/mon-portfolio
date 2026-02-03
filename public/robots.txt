@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Indique à Google où se trouve ton plan de site
+Sitemap: https://mon-portfolio-nu-dun.vercel.app/sitemap.xml
